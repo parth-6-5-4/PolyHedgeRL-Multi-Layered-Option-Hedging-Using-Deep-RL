@@ -9,9 +9,9 @@
 
 ## Project Overview
 
-PolyHedgeRL represents a comprehensive research initiative in applying deep reinforcement learning to multi-asset option portfolio management. This project addresses the complex challenge of dynamic hedging across diverse derivative instruments, implementing a sophisticated trading environment that captures real-world market dynamics including transaction costs, volatility regimes, and liquidity constraints.
+PolyHedgeRL represents a comprehensive research initiative in applying deep reinforcement learning to multi-asset option portfolio management. This project addresses the complex challenge of dynamic hedging across diverse derivative instruments, implementing a sophisticated trading environment that captures real-world market dynamics, including transaction costs, volatility regimes, and liquidity constraints.
 
-The system demonstrates advanced capabilities through a 21-asset trading framework encompassing spot instruments and options across multiple strike prices and expiration dates. The research methodology incorporates rigorous validation techniques including parameter sensitivity analysis, market regime testing, walk-forward backtesting, and simulated real-time trading scenarios.
+The system demonstrates advanced capabilities through a 21-asset trading framework encompassing spot instruments and options across multiple strike prices and expiration dates. The research methodology incorporates rigorous validation techniques, including parameter sensitivity analysis, market regime testing, walk-forward backtesting, and simulated real-time trading scenarios.
 
 **Key Research Outcomes:**
 - Achieved out-of-sample Sharpe ratios exceeding 1.5 across various market conditions
@@ -42,7 +42,7 @@ Market dynamics modeling includes realistic transaction cost implementation, bid
 
 ### Comprehensive Validation and Testing Framework
 
-The research methodology incorporates systematic parameter sensitivity analysis through automated sweeps across transaction cost levels and risk penalty parameters. Market regime testing validates performance across historically distinct periods including bull markets, bear markets, and high-volatility episodes.
+The research methodology incorporates systematic parameter sensitivity analysis through automated sweeps across transaction cost levels and risk penalty parameters. Market regime testing validates performance across historically distinct periods, including bull markets, bear markets, and high-volatility episodes.
 
 Walk-forward validation implements rolling out-of-sample testing across multiple temporal windows, providing robust evidence of model generalization capabilities. Monte Carlo simulation techniques validate statistical significance across 10,000+ trading episodes.
 
@@ -50,7 +50,7 @@ Walk-forward validation implements rolling out-of-sample testing across multiple
 
 The system integrates with live market data feeds through Yahoo Finance API for real-time spot price acquisition. The framework supports minute-by-minute trading decisions with comprehensive logging and audit trail functionality.
 
-The architecture is designed for seamless adaptation to professional trading platforms including Alpaca, Interactive Brokers, and other brokerage API systems, enabling transition from research to production deployment.
+The architecture is designed for seamless adaptation to professional trading platforms, including Alpaca, Interactive Brokers, and other brokerage API systems, enabling transition from research to production deployment.
 
 ---
 
@@ -134,7 +134,7 @@ PolyHedgeRL/
 ### System Requirements
 - Python 3.9 or higher
 - Minimum 8GB RAM for large-scale training operations
-- GPU acceleration optional but recommended for extensive hyperparameter tuning
+- GPU acceleration is optional but recommended for extensive hyperparameter tuning
 
 ### Installation Process
 
@@ -241,7 +241,7 @@ The state space engineering incorporates a 107-dimensional feature vector design
 
 ### Training Strategy Implementation
 
-The training methodology implements curriculum learning, progressively increasing complexity from a simplified 4-asset environment to the full 21-asset configuration. Regularization techniques including dropout, batch normalization, and early stopping prevent overfitting and enhance generalization capabilities.
+The training methodology implements curriculum learning, progressively increasing complexity from a simplified 4-asset environment to the full 21-asset configuration. Regularization techniques, including dropout, batch normalization, and early stopping, prevent overfitting and enhance generalization capabilities.
 
 Hyperparameter optimization utilizes systematic grid search across learning rates, batch sizes, and network architectures to identify optimal model configurations.
 
@@ -312,7 +312,7 @@ Action space comparison reveals that continuous action formulations outperform d
 
 ### Planned Technical Enhancements
 
-Version 2.0 development will incorporate multi-asset extension capabilities supporting foreign exchange options and commodity derivatives. Advanced Greeks-based strategies including delta-neutral and gamma-scalping implementations are planned for enhanced risk management.
+Version 2.0 development will incorporate multi-asset extension capabilities supporting foreign exchange options and commodity derivatives. Advanced Greeks-based strategies, including delta-neutral and gamma-scalping implementations, are planned for enhanced risk management.
 
 Ensemble methodology development will implement multiple agent architectures with sophisticated voting mechanisms to improve decision robustness. Full integration with major brokerage APIs will enable seamless transition from research to production deployment.
 
@@ -336,7 +336,7 @@ Automated alert systems for unusual market condition detection will enhance oper
 
 Begin with Notebook 01 (Data Exploration) to understand market data characteristics and feature engineering approaches. Progress through Notebook 02 (Environment Development) to master reinforcement learning environment design principles.
 
-Notebook 03 (Agent Training) provides comprehensive coverage of PPO training techniques and hyperparameter optimization strategies. Complete your understanding with Notebook 08 (Final Report) which demonstrates the complete analytical workflow.
+Notebook 03 (Agent Training) provides comprehensive coverage of PPO training techniques and hyperparameter optimization strategies. Complete your understanding with Notebook 08 (Final Report), which demonstrates the complete analytical workflow.
 
 ### Core Concepts and Applications
 
@@ -398,9 +398,9 @@ Valuable domain expertise and feedback from the quantitative finance community c
 
 ## Contact Information and Support
 
-**Primary Contact:** Parth [Last Name]  
-**Email:** [your.email@example.com](mailto:your.email@example.com)  
-**LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
+**Primary Contact:** Parth Dambhare  
+**Email:** [dambhareparth64@gmail.com](mailto:dambhareparth64@gmail.com)  
+**LinkedIn:** [Parth Dambhare](www.linkedin.com/in/parth-dambhare)  
 **Technical Issues:** [GitHub Issues](https://github.com/parth-6-5-4/PolyHedgeRL-Multi-Layered-Option-Hedging-Using-Deep-RL/issues)
 
 ### Community Engagement
