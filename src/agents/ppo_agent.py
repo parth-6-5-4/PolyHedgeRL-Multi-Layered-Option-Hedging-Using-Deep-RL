@@ -9,23 +9,48 @@ from stable_baselines3.common.callbacks import CheckpointCallback, EvalCallback
 from src.config.settings import get_config
 import os
 import logging
+import torch
 
 logger = logging.getLogger(__name__)
+
+def get_device():
+    """
+    Automatically detect and return the best available device.
+    Priority: MPS (Apple Silicon) > CUDA (NVIDIA) > CPU
+    """
+    if torch.backends.mps.is_available():
+        logger.info("MPS (Apple Silicon GPU) detected and will be used for training")
+        return "mps"
+    elif torch.cuda.is_available():
+        logger.info("CUDA GPU detected and will be used for training")
+        return "cuda"
+    else:
+        logger.info("No GPU detected, using CPU for training")
+        return "cpu"
 
 class PPOAgent:
     """
     Wrapper for creating and training a PPO agent with specified configurations.
+    Automatically uses MPS acceleration on Apple Silicon Macs.
     """
-    def __init__(self, env, model_dir: str = None, config_name: str = 'ppo'):
+    def __init__(self, env, model_dir: str = None, config_name: str = 'ppo', device: str = 'auto'):
         self.env = env
         self.config = get_config(config_name)
         self.model_dir = model_dir or get_config('paths')['models_dir']
         os.makedirs(self.model_dir, exist_ok=True)
+        
+        # Auto-detect device if not specified
+        if device == 'auto':
+            self.device = get_device()
+        else:
+            self.device = device
+            
+        logger.info(f"PPOAgent initialized with device: {self.device}")
         self.model = None
 
     def create_model(self, env=None):
         """
-        Instantiate a PPO model.
+        Instantiate a PPO model with MPS/CUDA/CPU device support.
         """
         if env is None:
             env = self.env
@@ -42,8 +67,10 @@ class PPOAgent:
             ent_coef=self.config['ent_coef'],
             vf_coef=self.config['vf_coef'],
             max_grad_norm=self.config['max_grad_norm'],
-            verbose=self.config['verbose']
+            verbose=self.config['verbose'],
+            device=self.device  # Enable MPS/CUDA/CPU
         )
+        logger.info(f"PPO model created on device: {self.model.device}")
         return self.model
 
     def train(

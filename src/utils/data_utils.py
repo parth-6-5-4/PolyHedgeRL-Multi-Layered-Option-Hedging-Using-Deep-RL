@@ -92,6 +92,10 @@ def download_market_data(
         # Reset index and clean columns
         df = df.reset_index()
         
+        # Flatten multi-level columns if present
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = [col[0] if col[1] == '' else col[0] for col in df.columns]
+        
         # Standardize column names
         column_mapping = {
             'Date': 'date',

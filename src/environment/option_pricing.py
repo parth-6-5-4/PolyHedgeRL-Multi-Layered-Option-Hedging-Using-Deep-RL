@@ -196,6 +196,9 @@ class SyntheticOptionPricer:
                         # Generate open interest
                         open_interest = self.generate_open_interest(spot, strike, option_type, time_to_expiry)
                         
+                        # Calculate moneyness
+                        moneyness = spot / strike if strike > 0 else 1.0
+                        
                         option_chains.append({
                             'date': date,
                             'expiry': expiry_date,
@@ -209,6 +212,7 @@ class SyntheticOptionPricer:
                             'ask': ask,
                             'mid': (bid + ask) / 2,
                             'iv': iv,
+                            'moneyness': moneyness,
                             'open_interest': open_interest,
                             'time_to_expiry': time_to_expiry
                         })

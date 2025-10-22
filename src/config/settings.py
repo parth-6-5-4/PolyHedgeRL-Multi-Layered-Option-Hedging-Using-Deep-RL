@@ -46,7 +46,7 @@ OPTION_CONFIG = {
 PPO_CONFIG = {
     'policy': 'MlpPolicy',
     'learning_rate': 3e-4,
-    'n_steps': 2048,
+    'n_steps': 1024,  # Reduced from 2048 for memory efficiency
     'batch_size': 64,
     'n_epochs': 10,
     'gamma': 0.99,
